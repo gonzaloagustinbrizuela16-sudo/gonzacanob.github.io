@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Parfum - Tienda de Perfumes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e6f0e6;
+            background: #0b0b0b;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #072e1f 0%, #000000 100%);
+            color: #e6f0e6;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.6);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            width: 64px;
+            height: auto;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo-subtitle {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #07100f;
+            background-image: linear-gradient(rgba(7,59,43,0.15), rgba(0,0,0,0.15));
+            color: #e6f0e6;
+            padding: 80px 20px;
+            min-height: 360px;
+            text-align: center;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 980px;
+            background: rgba(5,8,6,0.48);
+            border: 1px solid rgba(155,213,139,0.06);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            padding: 32px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                padding: 60px 16px;
+                min-height: 320px;
+            }
+            .hero-content {
+                margin-top: 60px;
+                padding: 22px;
+            }
+        }
+
+        .hero .subtitle, .hero p.location {
+            color: rgba(230,240,230,0.9);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #e6f0e6;
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .hero .location {
+            font-size: 14px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .btn-whatsapp {
+            background-color: #1f8f4a;
+            color: white;
+        }
+
+        .btn-instagram {
+            background-color: #0b3b2b;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Search Section */
+        .search-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #0f6b47;
+            border-radius: 25px;
+            font-size: 14px;
+            background: #0f1412;
+            color: #e6f0e6;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(11,59,43,0.45);
+        }
+
+        /* Category Buttons */
+        .category-nav {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-nav button {
+            padding: 10px 20px;
+            border: 2px solid #0f6b47;
+            background: transparent;
+            color: #d7e6d7;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.25s;
+        }
+
+        .category-nav button.active {
+            background: #0f6b47;
+            color: white;
+        }
+
+        .category-nav button:hover {
+            background: #0f6b47;
+            color: white;
+        }
+
+        /* Products Section */
+        .products-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #0f6b47 0%, #073b2b 100%);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: #0f1412;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(15,107,71,0.12);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #073b2b 0%, #000000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            font-size: 50px;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #e6f0e6;
+        }
+
+        .product-brand {
+            font-size: 12px;
+            color: #b8cbb6;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: #9bd58b;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .product-button {
+            width: 100%;
+            padding: 8px;
+            background: #0f6b47;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .product-button:hover {
+            background: #0b5938;
+        }
+
+        .load-more-btn {
+            padding: 10px 18px;
+            background: transparent;
+            border: 2px solid #0f6b47;
+            color: #e6f0e6;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .load-more-btn:hover {
+            background: #0f6b47;
+            color: #07100f;
+        }
+
+        .no-products {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #07100f;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 2px solid rgba(15,107,71,0.18);
+            margin-top: 60px;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #e6f0e6;
+        }
+
+        .contact-section p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #b8cbb6;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            color: #cfd8d4;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #9bd58b;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 15px;
+            }
+
+            .search-container {
+                flex-direction: column;
+            }
+
+            .search-box {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="instagram.jpg" alt="Quality Parfum logo" class="brand-logo">
+                <div>
+                    <div class="logo">QUALITY PARFUM</div>
+                    <div class="logo-subtitle">Capitán Bermúdez, Santa Fe</div>
+                </div>
+            </div>
+            <nav>
+                <a onclick="scrollToSection('hero')">Inicio</a>
+                <a onclick="scrollToSection('products')">Productos</a>
+                <a onclick="scrollToSection('contact')">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Quality Parfum</h1>
+            <p class="subtitle">Inspiraciones de los mejores perfumes del mundo</p>
+            <p class="location">Capitán Bermúdez, Santa Fe</p>
+            <p style="margin-top:12px;">Fragancias Premium 60ml - Excelente duración y fijación</p>
+            <div class="hero-buttons" style="margin-top:18px;">
+                <a href="https://wa.me/5493412756778" class="btn btn-whatsapp" target="_blank">WhatsApp</a>
+                <a href="https://www.instagram.com/qualityparfum.cb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="btn btn-instagram" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Busca por nombre de perfume o marca...">
+            </div>
+            <div class="category-nav">
+                <button onclick="filterByCategory('all')" class="active">Todos</button>
+                <button onclick="filterByCategory('mujer')">Mujer</button>
+                <button onclick="filterByCategory('hombre')">Hombre</button>
+                <button onclick="filterByCategory('arabes')">Árabes</button>
+                <button onclick="filterByCategory('unisex')">Unisex</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <h2 class="section-title">Nuestro Catálogo Completo</h2>
+        <div class="products-grid" id="productsGrid"></div>
+        <div id="moreContainer" style="text-align:center; margin: 20px 0;"></div>
+        <div id="noProducts" class="no-products hidden">
+            No encontramos productos que coincidan con tu búsqueda.
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-content">
+            <h2>¿Encontraste tu fragancia favorita?</h2>
+            <p>Contáctanos por WhatsApp o Instagram para realizar tu pedido. 
+               Contamos con envíos a toda la provincia y excelentes promociones.</p>
+            <div class="contact-buttons">
+                <a href="https://wa.me/5493412756778" class="btn btn-whatsapp" target="_blank">WhatsApp</a>
+                <a href="https://www.instagram.com/qualityparfum.cb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="btn btn-instagram" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-section">
+                    <h3>Ubicación</h3>
+                    <p>Capitán Bermúdez, Santa Fe<br>Argentina</p>
+                </div>
+                <div class="footer-section">
+                    <h3>🚚 Envíos</h3>
+                    <p>Enviamos a toda la provincia de Santa Fe y zonas cercanas</p>
+                </div>
+                <div class="footer-section">
+                    <h3>💳 Pagos</h3>
+                    <p>Transferencia bancaria, Mercado Pago, Efectivo</p>
+                </div>
+            </div>
+            <hr style="opacity: 0.2; margin: 20px 0;">
+            <p>&copy; 2026 Quality Parfum - Todos los derechos reservados</p>
+            <p style="font-size: 12px; margin-top: 10px;">Fragancias inspiradas en los mejores perfumes del mundo</p>
+        </div>
+    </footer>
+
+    <script>
+        // Prices (ARS)
+        const PRICE_60 = 18500;
+        const PRICE_30 = 10500;
+        function formatPrice(n) { return '$' + n.toLocaleString(); }
+
+        // Product Database
+        const productos = [
+            // FEMENINAS
+            { id: 1, nombre: '212 Glam', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 2, nombre: '212 Héroes', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 3, nombre: '212 New York', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '🌹' },
+            { id: 4, nombre: '212 Sexy', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '💋' },
+            { id: 5, nombre: '212 Vip', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 6, nombre: '212 Vip Rosé', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '🌹' },
+            { id: 7, nombre: '212 Vip Rosé Extra', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '💎' },
+            { id: 8, nombre: '212 Vip Rose Red', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '🌺' },
+            { id: 9, nombre: 'A Kiss of Bliss', marca: 'Penhaligon\'s', categoria: 'mujer', precio: 45000, emoji: '💋' },
+            { id: 10, nombre: 'Acqua Di Gio', marca: 'Giorgio Armani', categoria: 'mujer', precio: 45000, emoji: '💧' },
+            { id: 11, nombre: 'Addict', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '😍' },
+            { id: 12, nombre: 'Alien', marca: 'Thierry Mugler', categoria: 'mujer', precio: 45000, emoji: '👽' },
+            { id: 13, nombre: 'Alien Goddess', marca: 'Thierry Mugler', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 14, nombre: 'Allure', marca: 'Chanel', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 15, nombre: 'Alma', marca: 'Chanel', categoria: 'mujer', precio: 45000, emoji: '💚' },
+            { id: 16, nombre: 'Amarige', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 17, nombre: 'Amor', marca: 'Cacharel', categoria: 'mujer', precio: 45000, emoji: '💕' },
+            { id: 18, nombre: 'Anais-Anais', marca: 'Cacharel', categoria: 'mujer', precio: 45000, emoji: '🌼' },
+            { id: 19, nombre: 'Ange ou Demon', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '😇' },
+            { id: 20, nombre: 'Ange ou Demon Le Secret', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '🔐' },
+            { id: 21, nombre: 'Ange ou Demon Le Secret Elixir', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 22, nombre: 'Angel', marca: 'Thierry Mugler', categoria: 'mujer', precio: 45000, emoji: '👼' },
+            { id: 23, nombre: 'Angel Muse', marca: 'Thierry Mugler', categoria: 'mujer', precio: 45000, emoji: '🎵' },
+            { id: 24, nombre: 'Angel Nova', marca: 'Thierry Mugler', categoria: 'mujer', precio: 45000, emoji: '⭐' },
+            { id: 25, nombre: 'Armani Code', marca: 'Giorgio Armani', categoria: 'mujer', precio: 45000, emoji: '🔐' },
+            { id: 26, nombre: 'Aura', marca: 'Thierry Mugler', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 27, nombre: 'Be Delicious', marca: 'DKNY', categoria: 'mujer', precio: 45000, emoji: '🍎' },
+            { id: 28, nombre: 'Be Delicious Fresh Blossom', marca: 'DKNY', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 29, nombre: 'Black Opium', marca: 'Yves Saint Laurent', categoria: 'mujer', precio: 45000, emoji: '🖤' },
+            { id: 30, nombre: 'Black Opium Glowing', marca: 'Yves Saint Laurent', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 31, nombre: 'Black Opium Neon', marca: 'Yves Saint Laurent', categoria: 'mujer', precio: 45000, emoji: '💜' },
+            { id: 32, nombre: 'Black Opium Over Red', marca: 'Yves Saint Laurent', categoria: 'mujer', precio: 45000, emoji: '❤️' },
+            { id: 33, nombre: 'Black Orchid', marca: 'Tom Ford', categoria: 'mujer', precio: 45000, emoji: '🌺' },
+            { id: 34, nombre: 'Bloom', marca: 'Gucci', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 35, nombre: 'Blue', marca: 'Ralph Lauren', categoria: 'mujer', precio: 45000, emoji: '💙' },
+            { id: 36, nombre: 'Blue Seduction', marca: 'Antonio Banderas', categoria: 'mujer', precio: 45000, emoji: '💎' },
+            { id: 37, nombre: 'Bonbon', marca: 'Viktor & Rolf', categoria: 'mujer', precio: 45000, emoji: '🍬' },
+            { id: 38, nombre: 'Boos Intense', marca: 'Boos', categoria: 'mujer', precio: 45000, emoji: '💪' },
+            { id: 39, nombre: 'Boos Intense Lumiere', marca: 'Boos', categoria: 'mujer', precio: 45000, emoji: '💡' },
+            { id: 40, nombre: 'Boos Bright Cristal', marca: 'Versace', categoria: 'mujer', precio: 45000, emoji: '💎' },
+            { id: 41, nombre: 'Cabotine', marca: 'Gres', categoria: 'mujer', precio: 45000, emoji: '🎭' },
+            { id: 42, nombre: 'Carolina Herrera CH', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 43, nombre: 'CH L´eau', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '💧' },
+            { id: 44, nombre: 'CH Prive', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '🔐' },
+            { id: 45, nombre: 'CH Sublime', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 46, nombre: 'Chance', marca: 'Chanel', categoria: 'mujer', precio: 45000, emoji: '🍀' },
+            { id: 47, nombre: 'Chanel N°5', marca: 'Chanel', categoria: 'mujer', precio: 45000, emoji: '⭐' },
+            { id: 48, nombre: 'Cher 18', marca: 'Yves Saint Laurent', categoria: 'mujer', precio: 45000, emoji: '💎' },
+            { id: 49, nombre: 'Cherry In The Air', marca: 'Escada', categoria: 'mujer', precio: 45000, emoji: '🍒' },
+            { id: 50, nombre: 'Clasique', marca: 'Escada', categoria: 'mujer', precio: 45000, emoji: '🎩' },
+            { id: 51, nombre: 'Cloud', marca: 'JP Gaultier', categoria: 'mujer', precio: 45000, emoji: '☁️' },
+            { id: 52, nombre: 'Cloud', marca: 'Ariana Grande', categoria: 'mujer', precio: 45000, emoji: '☁️' },
+            { id: 53, nombre: 'Coco', marca: 'Chanel', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 54, nombre: 'Cool Water', marca: 'Davidoff', categoria: 'mujer', precio: 45000, emoji: '💧' },
+            { id: 55, nombre: 'Creed Adventus For Her', marca: 'Creed', categoria: 'mujer', precio: 45000, emoji: '🚀' },
+            { id: 56, nombre: 'Daisy', marca: 'Marc Jacobs', categoria: 'mujer', precio: 45000, emoji: '🌼' },
+            { id: 57, nombre: 'Delina Parfums', marca: 'Marly', categoria: 'mujer', precio: 45000, emoji: '💕' },
+            { id: 58, nombre: 'Divine', marca: 'JP Gaultier', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 59, nombre: 'Eclat D\'Arpege', marca: 'Lanvin', categoria: 'mujer', precio: 45000, emoji: '💫' },
+            { id: 60, nombre: 'Eden', marca: 'Cacharel', categoria: 'mujer', precio: 45000, emoji: '🌴' },
+            { id: 61, nombre: 'Eros', marca: 'Versace', categoria: 'mujer', precio: 45000, emoji: '💘' },
+            { id: 62, nombre: 'Eternity', marca: 'Calvin Klein', categoria: 'mujer', precio: 45000, emoji: '♾️' },
+            { id: 63, nombre: 'Euphoria', marca: 'Calvin Klein', categoria: 'mujer', precio: 45000, emoji: '😍' },
+            { id: 64, nombre: 'Extravagance', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 65, nombre: 'Fame', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '⭐' },
+            { id: 66, nombre: 'Fame Lady Gaga', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '🎭' },
+            { id: 67, nombre: 'Fame Parfum', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 68, nombre: 'Fantasy', marca: 'Britney Spears', categoria: 'mujer', precio: 45000, emoji: '🧚' },
+            { id: 69, nombre: 'Fleur Musc', marca: 'Narciso Rodríguez', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 70, nombre: 'Flora Gorgeous Gardenia', marca: 'Gucci', categoria: 'mujer', precio: 45000, emoji: '🌺' },
+            { id: 71, nombre: 'Flower', marca: 'Kenzo', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 72, nombre: 'Flower Ikebana', marca: 'Kenzo', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 73, nombre: 'Flower Poppy', marca: 'Kenzo', categoria: 'mujer', precio: 45000, emoji: '🌷' },
+            { id: 74, nombre: 'Flowerbomb', marca: 'Victor & Rolf', categoria: 'mujer', precio: 45000, emoji: '💣' },
+            { id: 75, nombre: 'Goddess', marca: 'Burberry', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 76, nombre: 'Goldea', marca: 'Bulgary', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 77, nombre: 'Good Fortune', marca: 'Viktor & Rolf', categoria: 'mujer', precio: 45000, emoji: '🍀' },
+            { id: 78, nombre: 'Good Girl', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '😈' },
+            { id: 79, nombre: 'Good Girl Blush', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '💋' },
+            { id: 80, nombre: 'Good Girl Dazzling Garden', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '🌹' },
+            { id: 81, nombre: 'Good Girl Glorius Gold', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 82, nombre: 'Good Girl Supreme', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 83, nombre: 'Good Girl Very', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '💫' },
+            { id: 84, nombre: 'Good Girl Very Glam', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 85, nombre: 'Gucci Guilty', marca: 'Gucci', categoria: 'mujer', precio: 45000, emoji: '👁️' },
+            { id: 86, nombre: 'Gucci Guilty Black', marca: 'Gucci', categoria: 'mujer', precio: 45000, emoji: '🖤' },
+            { id: 87, nombre: 'Halloween', marca: 'Gucci', categoria: 'mujer', precio: 45000, emoji: '🎃' },
+            { id: 88, nombre: 'Humor 1', marca: 'JDel Pozo', categoria: 'mujer', precio: 45000, emoji: '😄' },
+            { id: 89, nombre: 'Humor 5', marca: 'Natura', categoria: 'mujer', precio: 45000, emoji: '😊' },
+            { id: 90, nombre: 'Hypnose', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '🌀' },
+            { id: 91, nombre: 'Hypnotic Poison', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '☠️' },
+            { id: 92, nombre: 'Idole', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '⭐' },
+            { id: 93, nombre: 'Idole Aura', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 94, nombre: 'IN2U', marca: 'Calvin Klein', categoria: 'mujer', precio: 45000, emoji: '💑' },
+            { id: 95, nombre: 'Iris', marca: 'María Cher', categoria: 'mujer', precio: 45000, emoji: '🌈' },
+            { id: 96, nombre: 'Irresistible', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '😍' },
+            { id: 97, nombre: 'J\'Adore', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '💕' },
+            { id: 98, nombre: 'J\'Adore Voile', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '👰' },
+            { id: 99, nombre: 'Jimmy Choo', marca: 'Jimmy Choo', categoria: 'mujer', precio: 45000, emoji: '👠' },
+            { id: 100, nombre: 'Jimmy Choo Jungle', marca: 'Kenzo', categoria: 'mujer', precio: 45000, emoji: '🌴' },
+            { id: 101, nombre: 'Kayak', marca: 'Natura', categoria: 'mujer', precio: 45000, emoji: '🚤' },
+            { id: 102, nombre: 'Kenzo Amour', marca: 'Kenzo', categoria: 'mujer', precio: 45000, emoji: '💕' },
+            { id: 103, nombre: 'Kenzo D\'Ete', marca: 'Kenzo', categoria: 'mujer', precio: 45000, emoji: '☀️' },
+            { id: 104, nombre: 'Kenzo World', marca: 'Kenzo', categoria: 'mujer', precio: 45000, emoji: '🌍' },
+            { id: 105, nombre: 'L\'Eau D Issey', marca: 'Issey Miyake', categoria: 'mujer', precio: 45000, emoji: '💧' },
+            { id: 106, nombre: 'L\'Eau Par Kenzo', marca: 'Kenzo', categoria: 'mujer', precio: 45000, emoji: '💧' },
+            { id: 107, nombre: 'L\'Interdit', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '🚫' },
+            { id: 108, nombre: 'L\'Interdit Rouge', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '❤️' },
+            { id: 109, nombre: 'La Belle', marca: 'JP Gaultier', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 110, nombre: 'La Bomba', marca: 'Carolina Herrera', categoria: 'mujer', precio: 45000, emoji: '💣' },
+            { id: 111, nombre: 'La Petite Robe Noir', marca: 'Guerlain', categoria: 'mujer', precio: 45000, emoji: '🖤' },
+            { id: 112, nombre: 'La Vida es Bella', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 113, nombre: 'La Vida es Bella Florale', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 114, nombre: 'La Vida es Bella Intense', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '💪' },
+            { id: 115, nombre: 'La vida es Bella L´ Absolu', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 116, nombre: 'La Vida es Bella Rose', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '🌹' },
+            { id: 117, nombre: 'Lady Millon', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '💎' },
+            { id: 118, nombre: 'Lady Millon Empire', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 119, nombre: 'Lady Millon Faboulous', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 120, nombre: 'Lady Millon Prive', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '🔐' },
+            { id: 121, nombre: 'Lady Millon Royal', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 122, nombre: 'Libre', marca: 'Yves St. Lauren', categoria: 'mujer', precio: 45000, emoji: '🦅' },
+            { id: 123, nombre: 'Light Blue', marca: 'Dolce & Gabbana', categoria: 'mujer', precio: 45000, emoji: '💙' },
+            { id: 124, nombre: 'Light Blue Intense', marca: 'Dolce & Gabbana', categoria: 'mujer', precio: 45000, emoji: '⚡' },
+            { id: 125, nombre: 'Light Blue Sun', marca: 'Dolce & Gabbana', categoria: 'mujer', precio: 45000, emoji: '☀️' },
+            { id: 126, nombre: 'Linterdit Absolu', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '🚫' },
+            { id: 127, nombre: 'Live Irresistible', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '💃' },
+            { id: 128, nombre: 'Lolita Lempicka', marca: 'Lolita Lempicka', categoria: 'mujer', precio: 45000, emoji: '🎀' },
+            { id: 129, nombre: 'Lou Lou', marca: 'Cacharel', categoria: 'mujer', precio: 45000, emoji: '🐕' },
+            { id: 130, nombre: 'Love', marca: 'Moschino', categoria: 'mujer', precio: 45000, emoji: '💕' },
+            { id: 131, nombre: 'Meow', marca: 'Katy Perry', categoria: 'mujer', precio: 45000, emoji: '🐱' },
+            { id: 132, nombre: 'Metallique', marca: 'Tom Ford', categoria: 'mujer', precio: 45000, emoji: '⚔️' },
+            { id: 133, nombre: 'Midnight Fantasy', marca: 'Britney Spears', categoria: 'mujer', precio: 45000, emoji: '🌙' },
+            { id: 134, nombre: 'Midnight Poison', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '☠️' },
+            { id: 135, nombre: 'Million Gold for Her', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 136, nombre: 'Miss Dior', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 137, nombre: 'Miss Dior Blooming', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 138, nombre: 'Miss Dior Parfum', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '👗' },
+            { id: 139, nombre: 'Miss Dior Rose N\'Roses', marca: 'Miu Miu', categoria: 'mujer', precio: 45000, emoji: '🌹' },
+            { id: 140, nombre: 'Miu Miu Twist', marca: 'Miu Miu', categoria: 'mujer', precio: 45000, emoji: '🔀' },
+            { id: 141, nombre: 'Mon Paris', marca: 'Yves St. Lauren', categoria: 'mujer', precio: 45000, emoji: '🗼' },
+            { id: 142, nombre: 'My Way', marca: 'Armani', categoria: 'mujer', precio: 45000, emoji: '🛣️' },
+            { id: 143, nombre: 'My Way Intense', marca: 'Armani', categoria: 'mujer', precio: 45000, emoji: '💪' },
+            { id: 144, nombre: 'Narciso Rodriguez', marca: 'Narciso Rodríguez', categoria: 'mujer', precio: 45000, emoji: '🌹' },
+            { id: 145, nombre: 'Narciso Rodriguez Rouge', marca: 'Narciso Rodríguez', categoria: 'mujer', precio: 45000, emoji: '❤️' },
+            { id: 146, nombre: 'Nina', marca: 'Nina Ricci', categoria: 'mujer', precio: 45000, emoji: '👧' },
+            { id: 147, nombre: 'Nina Bella', marca: 'Nina Ricci', categoria: 'mujer', precio: 45000, emoji: '🌺' },
+            { id: 148, nombre: 'Nina Luna', marca: 'Nina Ricci', categoria: 'mujer', precio: 45000, emoji: '🌙' },
+            { id: 149, nombre: 'Nina Rouge', marca: 'Nina Ricci', categoria: 'mujer', precio: 45000, emoji: '❤️' },
+            { id: 150, nombre: 'O', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '⭕' },
+            { id: 151, nombre: 'Olympea', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 152, nombre: 'Olympea Acqua Legere', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '💧' },
+            { id: 153, nombre: 'Olympea Blossom', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 154, nombre: 'Olympea Intense', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '💪' },
+            { id: 155, nombre: 'Olympea Legend', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '⭐' },
+            { id: 156, nombre: 'Olympea Solar', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '☀️' },
+            { id: 157, nombre: 'Omnia Coral', marca: 'Bulgary', categoria: 'mujer', precio: 45000, emoji: '🪸' },
+            { id: 158, nombre: 'Omnia Crystalline', marca: 'Bulgary', categoria: 'mujer', precio: 45000, emoji: '💎' },
+            { id: 159, nombre: 'One Shock', marca: 'Calvin Klein', categoria: 'mujer', precio: 45000, emoji: '⚡' },
+            { id: 160, nombre: 'Onyx Elixir', marca: 'María Cher', categoria: 'mujer', precio: 45000, emoji: '⚫' },
+            { id: 161, nombre: 'Opium', marca: 'Yves St. Lauren', categoria: 'mujer', precio: 45000, emoji: '🧴' },
+            { id: 162, nombre: 'Organza', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '👗' },
+            { id: 163, nombre: 'Oscar De La Renta', marca: 'Oscar de la Renta', categoria: 'mujer', precio: 45000, emoji: '🏆' },
+            { id: 164, nombre: 'Oui La Vie Est Belle', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 165, nombre: 'Play', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '🎮' },
+            { id: 166, nombre: 'Play Intense', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '💪' },
+            { id: 167, nombre: 'Poison', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '☠️' },
+            { id: 168, nombre: 'Poison Girl', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '😈' },
+            { id: 169, nombre: 'Pure Poison', marca: 'Christian Dior', categoria: 'mujer', precio: 45000, emoji: '☠️' },
+            { id: 170, nombre: 'Pure XS', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 171, nombre: 'Radiance', marca: 'Britney Spears', categoria: 'mujer', precio: 45000, emoji: '☀️' },
+            { id: 172, nombre: 'Ralph', marca: 'Ralph Lauren', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 173, nombre: 'Ralph Wild', marca: 'Ralph Lauren', categoria: 'mujer', precio: 45000, emoji: '🐾' },
+            { id: 174, nombre: 'Ricci', marca: 'Nina Ricci', categoria: 'mujer', precio: 45000, emoji: '👗' },
+            { id: 175, nombre: 'Rumba', marca: 'Ted Lapidus', categoria: 'mujer', precio: 45000, emoji: '💃' },
+            { id: 176, nombre: 'Santal Blush', marca: 'Tom Ford', categoria: 'mujer', precio: 45000, emoji: '🌸' },
+            { id: 177, nombre: 'Scandal by Night', marca: 'JP Gaultier', categoria: 'mujer', precio: 45000, emoji: '🌙' },
+            { id: 178, nombre: 'Scandal Gold', marca: 'JP Gaultier', categoria: 'mujer', precio: 45000, emoji: '✨' },
+            { id: 179, nombre: 'Scandal Le Parfum', marca: 'JP Gaultier', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 180, nombre: 'Scandall', marca: 'JP Gaultier', categoria: 'mujer', precio: 45000, emoji: '📢' },
+            { id: 181, nombre: 'Scandall a Paris', marca: 'JP Gaultier', categoria: 'mujer', precio: 45000, emoji: '🗼' },
+            { id: 182, nombre: 'Shakira Elixir', marca: 'Shakira', categoria: 'mujer', precio: 45000, emoji: '🎵' },
+            { id: 183, nombre: 'Shakira Rock', marca: 'Shakira', categoria: 'mujer', precio: 45000, emoji: '🎸' },
+            { id: 184, nombre: 'Si', marca: 'Armani', categoria: 'mujer', precio: 45000, emoji: '👍' },
+            { id: 185, nombre: 'Si Intense', marca: 'Armani', categoria: 'mujer', precio: 45000, emoji: '💪' },
+            { id: 186, nombre: 'Si Passione', marca: 'Armani', categoria: 'mujer', precio: 45000, emoji: '💕' },
+            { id: 187, nombre: 'Summer Daze', marca: 'Victoria Secrets', categoria: 'mujer', precio: 45000, emoji: '☀️' },
+            { id: 188, nombre: 'Sweet Like Candy', marca: 'Ariana Grande', categoria: 'mujer', precio: 45000, emoji: '🍬' },
+            { id: 189, nombre: 'The One', marca: 'Dolce & Gabbana', categoria: 'mujer', precio: 45000, emoji: '👑' },
+            { id: 190, nombre: 'The Only One', marca: 'Dolce & Gabbana', categoria: 'mujer', precio: 45000, emoji: '1️⃣' },
+            { id: 191, nombre: 'The Only One Intense', marca: 'Dolce & Gabbana', categoria: 'mujer', precio: 45000, emoji: '💪' },
+            { id: 192, nombre: 'Tommy Girl', marca: 'Tommy Hilfiger', categoria: 'mujer', precio: 45000, emoji: '👧' },
+            { id: 193, nombre: 'Toy 2', marca: 'Moschino', categoria: 'mujer', precio: 45000, emoji: '🧸' },
+            { id: 194, nombre: 'Toy 2 Bubble Gum', marca: 'Moschino', categoria: 'mujer', precio: 45000, emoji: '🍬' },
+            { id: 195, nombre: 'Tresor Midnight Rose', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '🌹' },
+            { id: 196, nombre: 'Tressor', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '💎' },
+            { id: 197, nombre: 'Tressor Le Nuit', marca: 'Lancome', categoria: 'mujer', precio: 45000, emoji: '🌙' },
+            { id: 198, nombre: 'Twilly d\'Hermes', marca: 'Hermes', categoria: 'mujer', precio: 45000, emoji: '👗' },
+            { id: 199, nombre: 'Ultraviolet', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '🟣' },
+            { id: 200, nombre: 'Valentino Born in Roma Intense', marca: 'Valentino', categoria: 'mujer', precio: 45000, emoji: '❤️' },
+            { id: 201, nombre: 'Venus', marca: 'Nina Ricci', categoria: 'mujer', precio: 45000, emoji: '♀️' },
+            { id: 202, nombre: 'Very Irresistible', marca: 'Givenchy', categoria: 'mujer', precio: 45000, emoji: '😍' },
+            { id: 203, nombre: 'Very Sexy', marca: 'Victoria Secrets', categoria: 'mujer', precio: 45000, emoji: '💃' },
+            { id: 204, nombre: 'Wanted Girl', marca: 'Azzaro', categoria: 'mujer', precio: 45000, emoji: '🎯' },
+            { id: 205, nombre: 'XS Aphrodisiaque', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '❤️' },
+            { id: 206, nombre: 'XS Be a Legend', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '⭐' },
+            { id: 207, nombre: 'XS Black', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '🖤' },
+            { id: 208, nombre: 'XS Black Potion', marca: 'Paco Rabanne', categoria: 'mujer', precio: 45000, emoji: '🧪' },
+            { id: 209, nombre: 'Yellow Diamond', marca: 'Versace', categoria: 'mujer', precio: 45000, emoji: '💛' },
+            { id: 210, nombre: 'Yes I Am', marca: 'Cacharel', categoria: 'mujer', precio: 45000, emoji: '👍' },
+            { id: 211, nombre: 'You', marca: 'Armani', categoria: 'mujer', precio: 45000, emoji: '👉' },
+
+            // MASCULINAS
+            { id: 212, nombre: '212 Glam', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '🌟' },
+            { id: 213, nombre: '212 Heroes', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '🦸' },
+            { id: 214, nombre: '212 New York', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '🗽' },
+            { id: 215, nombre: '212 On Ice', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '❄️' },
+            { id: 216, nombre: '212 Sexy', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '😘' },
+            { id: 217, nombre: '212 Vip', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '💎' },
+            { id: 218, nombre: '212 Vip Black', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '🖤' },
+            { id: 219, nombre: '212 Vip Black Extra', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '⚫' },
+            { id: 220, nombre: '212 Vip Wild', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '🐾' },
+            { id: 221, nombre: '212 Vip Wins', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '🏆' },
+            { id: 222, nombre: 'A Men', marca: 'Thierry Mugler', categoria: 'hombre', precio: 45000, emoji: '🧔' },
+            { id: 223, nombre: 'Acqua Di Gio', marca: 'Giorgio Armani', categoria: 'hombre', precio: 45000, emoji: '💧' },
+            { id: 224, nombre: 'Acqua Di Gio Essenza', marca: 'Giorgio Armani', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 225, nombre: 'Acqua Di Gio Profondo', marca: 'Giorgio Armani', categoria: 'hombre', precio: 45000, emoji: '🌊' },
+            { id: 226, nombre: 'Acqua Di Gio Profumo', marca: 'Giorgio Armani', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 227, nombre: 'Alien', marca: 'Thierry Mugler', categoria: 'hombre', precio: 45000, emoji: '👽' },
+            { id: 228, nombre: 'Allure Sport', marca: 'Chanel', categoria: 'hombre', precio: 45000, emoji: '⚽' },
+            { id: 229, nombre: 'Angel', marca: 'Thierry Mugler', categoria: 'hombre', precio: 45000, emoji: '👼' },
+            { id: 230, nombre: 'Aqva Marine', marca: 'Bulgary', categoria: 'hombre', precio: 45000, emoji: '🌊' },
+            { id: 231, nombre: 'Armani Code', marca: 'Giorgio Armani', categoria: 'hombre', precio: 45000, emoji: '🔐' },
+            { id: 232, nombre: 'Armani Code Absolu', marca: 'Giorgio Armani', categoria: 'hombre', precio: 45000, emoji: '🔒' },
+            { id: 233, nombre: 'Armani Code Profumo', marca: 'Giorgio Armani', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 234, nombre: 'Artik Sea', marca: 'Lorenzo Pazzaglia', categoria: 'hombre', precio: 45000, emoji: '🌊' },
+            { id: 235, nombre: 'Attitude', marca: 'Armani', categoria: 'hombre', precio: 45000, emoji: '😎' },
+            { id: 236, nombre: 'Azzaro', marca: 'Azzaro', categoria: 'hombre', precio: 45000, emoji: '⭐' },
+            { id: 237, nombre: 'Bad Boy', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '😈' },
+            { id: 238, nombre: 'Bad Boy Cobalt', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '🔵' },
+            { id: 239, nombre: 'Bad Boy Dazzling Garden', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '🌹' },
+            { id: 240, nombre: 'Bad Boy Extreme', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '💥' },
+            { id: 241, nombre: 'Bad Boy Le Parfum', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 242, nombre: 'Be Delicious', marca: 'DKNY', categoria: 'hombre', precio: 45000, emoji: '🍎' },
+            { id: 243, nombre: 'Bleau', marca: 'Chanel', categoria: 'hombre', precio: 45000, emoji: '💙' },
+            { id: 244, nombre: 'Blue Jean', marca: 'Versace', categoria: 'hombre', precio: 45000, emoji: '👖' },
+            { id: 245, nombre: 'Blue Label', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '🏷️' },
+            { id: 246, nombre: 'Blue Seduction', marca: 'Antonio Banderas', categoria: 'hombre', precio: 45000, emoji: '💎' },
+            { id: 247, nombre: 'BLV Notte', marca: 'Bulgary', categoria: 'hombre', precio: 45000, emoji: '🌙' },
+            { id: 248, nombre: 'Boos Intense', marca: 'Boos', categoria: 'hombre', precio: 45000, emoji: '💪' },
+            { id: 249, nombre: 'Boos Intense Night', marca: 'Boos', categoria: 'hombre', precio: 45000, emoji: '🌙' },
+            { id: 250, nombre: 'Boss Bottled Absolute', marca: 'Hugo Boss', categoria: 'hombre', precio: 45000, emoji: '💼' },
+            { id: 251, nombre: 'Boss The Scent Elixir', marca: 'Hugo Boss', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 252, nombre: 'Bulgary Man Extreme', marca: 'Bulgary', categoria: 'hombre', precio: 45000, emoji: '💪' },
+            { id: 253, nombre: 'Bulgary Man In Black', marca: 'Bulgary', categoria: 'hombre', precio: 45000, emoji: '🖤' },
+            { id: 254, nombre: 'Bulgary Wood Essence', marca: 'Bulgary', categoria: 'hombre', precio: 45000, emoji: '🌲' },
+            { id: 255, nombre: 'Carolina Herrera Clásico', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '🎩' },
+            { id: 256, nombre: 'CH', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 257, nombre: 'CH Prive', marca: 'Carolina Herrera', categoria: 'hombre', precio: 45000, emoji: '🔐' },
+            { id: 258, nombre: 'CK In 2U', marca: 'Calvin Klein', categoria: 'hombre', precio: 45000, emoji: '💑' },
+            { id: 259, nombre: 'CK Man', marca: 'Calvin Klein', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 260, nombre: 'CK One Gold', marca: 'Calvin Klein', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 261, nombre: 'CK One Red', marca: 'Calvin Klein', categoria: 'hombre', precio: 45000, emoji: '❤️' },
+            { id: 262, nombre: 'Cool Water', marca: 'Davidoff', categoria: 'hombre', precio: 45000, emoji: '💧' },
+            { id: 263, nombre: 'Creed Aventus', marca: 'Creed', categoria: 'hombre', precio: 45000, emoji: '🚀' },
+            { id: 264, nombre: 'Creed Royal Oud', marca: 'Creed', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 265, nombre: 'Dark Blue', marca: 'Hugo Boss', categoria: 'hombre', precio: 45000, emoji: '🌌' },
+            { id: 266, nombre: 'Defy', marca: 'Calvin Klein', categoria: 'hombre', precio: 45000, emoji: '⚡' },
+            { id: 267, nombre: 'Dior Homme', marca: 'Christian Dior', categoria: 'hombre', precio: 45000, emoji: '💼' },
+            { id: 268, nombre: 'Dior Homme Intense', marca: 'Christian Dior', categoria: 'hombre', precio: 45000, emoji: '💪' },
+            { id: 269, nombre: 'Dior Homme Sport', marca: 'Christian Dior', categoria: 'hombre', precio: 45000, emoji: '⚽' },
+            { id: 270, nombre: 'Dreamer', marca: 'Versace', categoria: 'hombre', precio: 45000, emoji: '💭' },
+            { id: 271, nombre: 'Dylan Blue', marca: 'Versace', categoria: 'hombre', precio: 45000, emoji: '💙' },
+            { id: 272, nombre: 'Eau Sauvage', marca: 'Christian Dior', categoria: 'hombre', precio: 45000, emoji: '🌿' },
+            { id: 273, nombre: 'Emporio Night', marca: 'Armani', categoria: 'hombre', precio: 45000, emoji: '🌙' },
+            { id: 274, nombre: 'Eros', marca: 'Versace', categoria: 'hombre', precio: 45000, emoji: '💘' },
+            { id: 275, nombre: 'Eros Flame', marca: 'Versace', categoria: 'hombre', precio: 45000, emoji: '🔥' },
+            { id: 276, nombre: 'Eternity Air', marca: 'Calvin Klein', categoria: 'hombre', precio: 45000, emoji: '☁️' },
+            { id: 277, nombre: 'Fahrenheit', marca: 'Christian Dior', categoria: 'hombre', precio: 45000, emoji: '🌡️' },
+            { id: 278, nombre: 'Fahrenheit 32', marca: 'Christian Dior', categoria: 'hombre', precio: 45000, emoji: '❄️' },
+            { id: 279, nombre: 'Fan di Fendi', marca: 'Fendi', categoria: 'hombre', precio: 45000, emoji: '👗' },
+            { id: 280, nombre: 'Ferrari Black', marca: 'Ferrari', categoria: 'hombre', precio: 45000, emoji: '🖤' },
+            { id: 281, nombre: 'Ferrari Red', marca: 'Ferrari', categoria: 'hombre', precio: 45000, emoji: '❤️' },
+            { id: 282, nombre: 'Fierce', marca: 'Abercrombie', categoria: 'hombre', precio: 45000, emoji: '😤' },
+            { id: 283, nombre: 'Fleur Du Male', marca: 'JP Gaultier', categoria: 'hombre', precio: 45000, emoji: '🌸' },
+            { id: 284, nombre: 'Fucking Faboulous', marca: 'Tom Ford', categoria: 'hombre', precio: 45000, emoji: '🤩' },
+            { id: 285, nombre: 'Full Incense', marca: 'Montale', categoria: 'hombre', precio: 45000, emoji: '💨' },
+            { id: 286, nombre: 'Fussion D\'Issey', marca: 'Issey Miyake', categoria: 'hombre', precio: 45000, emoji: '🔀' },
+            { id: 287, nombre: 'Gentleman Only', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '🎩' },
+            { id: 288, nombre: 'Gentleman Only Absolut', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 289, nombre: 'Gentleman Reserve Prive', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '🥂' },
+            { id: 290, nombre: 'Gentleman Society', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '🎩' },
+            { id: 291, nombre: 'Gucci Guilty Black', marca: 'Gucci', categoria: 'hombre', precio: 45000, emoji: '🖤' },
+            { id: 292, nombre: 'Halloween', marca: 'Gucci', categoria: 'hombre', precio: 45000, emoji: '🎃' },
+            { id: 293, nombre: 'Hommem Dom', marca: 'Natura', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 294, nombre: 'Hugo Boss', marca: 'Hugo Boss', categoria: 'hombre', precio: 45000, emoji: '💼' },
+            { id: 295, nombre: 'Hugo Boss Bottled', marca: 'Hugo Boss', categoria: 'hombre', precio: 45000, emoji: '🍾' },
+            { id: 296, nombre: 'Hugo Boss Bottled Infinite', marca: 'Hugo Boss', categoria: 'hombre', precio: 45000, emoji: '♾️' },
+            { id: 297, nombre: 'Hugo Boss Just Different', marca: 'Hugo Boss', categoria: 'hombre', precio: 45000, emoji: '👍' },
+            { id: 298, nombre: 'Hugo Boss Night Bottled', marca: 'Hugo Boss', categoria: 'hombre', precio: 45000, emoji: '🌙' },
+            { id: 299, nombre: 'Hugo Boss Red', marca: 'Hugo Boss', categoria: 'hombre', precio: 45000, emoji: '❤️' },
+            { id: 300, nombre: 'Hypnose', marca: 'Lancome', categoria: 'hombre', precio: 45000, emoji: '🌀' },
+            { id: 301, nombre: 'Icon', marca: 'Antonio Banderas', categoria: 'hombre', precio: 45000, emoji: '🏆' },
+            { id: 302, nombre: 'Impact', marca: 'Tommy Hilfiger', categoria: 'hombre', precio: 45000, emoji: '💥' },
+            { id: 303, nombre: 'Insense Ultramarine', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '🌊' },
+            { id: 304, nombre: 'Invictus', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 305, nombre: 'Invictus Acqua', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '💧' },
+            { id: 306, nombre: 'Invictus Intense', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '💪' },
+            { id: 307, nombre: 'Invictus Legend', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '⭐' },
+            { id: 308, nombre: 'Invictus Onix', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '⚫' },
+            { id: 309, nombre: 'Invictus Platinum', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '💎' },
+            { id: 310, nombre: 'Invictus Victory', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '🏆' },
+            { id: 311, nombre: 'Invictus Victory Elixir', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 312, nombre: 'Jazz', marca: 'Yves Saint Laurent', categoria: 'hombre', precio: 45000, emoji: '🎷' },
+            { id: 313, nombre: 'Joop', marca: 'Joop', categoria: 'hombre', precio: 45000, emoji: '🎭' },
+            { id: 314, nombre: 'Kenzo Homme', marca: 'Kenzo', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 315, nombre: 'Kenzo Homme Eau de Parfum', marca: 'Kenzo', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 316, nombre: 'Kenzo Homme Night', marca: 'Kenzo', categoria: 'hombre', precio: 45000, emoji: '🌙' },
+            { id: 317, nombre: 'King', marca: 'Dolce & Gabbana', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 318, nombre: 'King of Seduction', marca: 'Antonio Banderas', categoria: 'hombre', precio: 45000, emoji: '❤️' },
+            { id: 319, nombre: 'L´Bleau D Issey', marca: 'Issey Miyake', categoria: 'hombre', precio: 45000, emoji: '💙' },
+            { id: 320, nombre: 'L´Eau D Issey', marca: 'Issey Miyake', categoria: 'hombre', precio: 45000, emoji: '💧' },
+            { id: 321, nombre: 'L´Eau Par Kenzo', marca: 'Kenzo', categoria: 'hombre', precio: 45000, emoji: '💧' },
+            { id: 322, nombre: 'L´Homme Ideal', marca: 'Guerlain', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 323, nombre: 'La Nuit de L´Homme Bleu Electrique', marca: 'Yves Saint Laurent', categoria: 'hombre', precio: 45000, emoji: '🌌' },
+            { id: 324, nombre: 'Lacoste Bleu', marca: 'Lacoste', categoria: 'hombre', precio: 45000, emoji: '🐊' },
+            { id: 325, nombre: 'Layton Exclusif', marca: 'Marly', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 326, nombre: 'Le Beau', marca: 'JP Gaultier', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 327, nombre: 'Le Beau Paradise Garden', marca: 'JP Gaulttier', categoria: 'hombre', precio: 45000, emoji: '🌴' },
+            { id: 328, nombre: 'Le Male Elixir', marca: 'JP GAULTIER', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 329, nombre: 'Le Male Le Parfum', marca: 'JP Gaulttier', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 330, nombre: 'Lemale', marca: 'JP Gaultier', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 331, nombre: 'Leyend Mon Blanc', marca: 'Mon Blanc', categoria: 'hombre', precio: 45000, emoji: '⛰️' },
+            { id: 332, nombre: 'L\'Homme Libre', marca: 'Yves Saint Laurent', categoria: 'hombre', precio: 45000, emoji: '🦅' },
+            { id: 333, nombre: 'Light Blue', marca: 'Dolce & Gabbana', categoria: 'hombre', precio: 45000, emoji: '💙' },
+            { id: 334, nombre: 'Loewe 7', marca: 'Loewe', categoria: 'hombre', precio: 45000, emoji: '🔢' },
+            { id: 335, nombre: 'Loewe Scent Of Marihuana', marca: 'Loewe', categoria: 'hombre', precio: 45000, emoji: '🌿' },
+            { id: 336, nombre: 'Luna Rosa', marca: 'Prada', categoria: 'hombre', precio: 45000, emoji: '🌹' },
+            { id: 337, nombre: 'Million Gold', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 338, nombre: 'Myslf', marca: 'Yves Saint Laurent', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 339, nombre: 'Narciso Rodriguez', marca: 'Narciso Rodríguez', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 340, nombre: 'Nuit D\'Issey', marca: 'Issey Miyake', categoria: 'hombre', precio: 45000, emoji: '🌙' },
+            { id: 341, nombre: 'Nuit D\'Issey Bleu Astral', marca: 'Issey Miyake', categoria: 'hombre', precio: 45000, emoji: '🌌' },
+            { id: 342, nombre: 'Nuit L\'Homme', marca: 'Yves Saint Laurent', categoria: 'hombre', precio: 45000, emoji: '🌙' },
+            { id: 343, nombre: 'Ombre Leather', marca: 'Tom Ford', categoria: 'hombre', precio: 45000, emoji: '🤎' },
+            { id: 344, nombre: 'Ombre Nomade', marca: 'Louis Vuitton', categoria: 'hombre', precio: 45000, emoji: '🏜️' },
+            { id: 345, nombre: 'One Millon', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '💵' },
+            { id: 346, nombre: 'One Millon Elixir', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 347, nombre: 'One Millon Golden Oud', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '🏆' },
+            { id: 348, nombre: 'One Millon Intense', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '💪' },
+            { id: 349, nombre: 'One Millon Lucky', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '🍀' },
+            { id: 350, nombre: 'One Millon Prive', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '🔐' },
+            { id: 351, nombre: 'One Millon Royal', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 352, nombre: 'Oud Wood', marca: 'Tom Ford', categoria: 'hombre', precio: 45000, emoji: '🌲' },
+            { id: 353, nombre: 'Patchouli 24', marca: 'Le Labo', categoria: 'hombre', precio: 45000, emoji: '🌿' },
+            { id: 354, nombre: 'Phantom', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '👻' },
+            { id: 355, nombre: 'Phantom Parfum', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 356, nombre: 'Pi', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '🥧' },
+            { id: 357, nombre: 'Play Intense', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '🎮' },
+            { id: 358, nombre: 'Polo', marca: 'Ralph Lauren', categoria: 'hombre', precio: 45000, emoji: '🏇' },
+            { id: 359, nombre: 'Polo Black', marca: 'Ralph Lauren', categoria: 'hombre', precio: 45000, emoji: '🖤' },
+            { id: 360, nombre: 'Polo Blue', marca: 'Ralph Lauren', categoria: 'hombre', precio: 45000, emoji: '💙' },
+            { id: 361, nombre: 'Polo Red', marca: 'Ralph Lauren', categoria: 'hombre', precio: 45000, emoji: '❤️' },
+            { id: 362, nombre: 'Polo Red Rush', marca: 'Ralph Lauren', categoria: 'hombre', precio: 45000, emoji: '💨' },
+            { id: 363, nombre: 'Polo Sport', marca: 'Ralph Lauren', categoria: 'hombre', precio: 45000, emoji: '⚽' },
+            { id: 364, nombre: 'Polo Ultrablue', marca: 'Ralph Lauren', categoria: 'hombre', precio: 45000, emoji: '💎' },
+            { id: 365, nombre: 'Pour Homme', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 366, nombre: 'Power of Seduction', marca: 'Antonio Banderas', categoria: 'hombre', precio: 45000, emoji: '❤️' },
+            { id: 367, nombre: 'Pure Havane A Men', marca: 'Thierry Mugler', categoria: 'hombre', precio: 45000, emoji: '🚬' },
+            { id: 368, nombre: 'Pure Xs Night', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '🌙' },
+            { id: 369, nombre: 'Royal Oud', marca: 'Armani', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 370, nombre: 'Sauvage', marca: 'Christian Dior', categoria: 'hombre', precio: 45000, emoji: '🤠' },
+            { id: 371, nombre: 'Sauvage Elixir', marca: 'Christian Dior', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 372, nombre: 'Scandal', marca: 'JP Gaultier', categoria: 'hombre', precio: 45000, emoji: '📢' },
+            { id: 373, nombre: 'Scandal Absolu', marca: 'JP Gaultier', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 374, nombre: 'Scandal Intense', marca: 'JP Gaultier', categoria: 'hombre', precio: 45000, emoji: '💪' },
+            { id: 375, nombre: 'Scandal Le Parfum', marca: 'JP GAULTIER', categoria: 'hombre', precio: 45000, emoji: '🎭' },
+            { id: 376, nombre: 'Shock', marca: 'Calvin Klein', categoria: 'hombre', precio: 45000, emoji: '⚡' },
+            { id: 377, nombre: 'Spice Bomb', marca: 'Viktor & Rolf', categoria: 'hombre', precio: 45000, emoji: '💣' },
+            { id: 378, nombre: 'Spicebomb Metalique Musk', marca: 'Viktor & Rolf', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 379, nombre: 'Starwalker', marca: 'Montblanc', categoria: 'hombre', precio: 45000, emoji: '⭐' },
+            { id: 380, nombre: 'Stronger With You', marca: 'Giorgio Armani', categoria: 'hombre', precio: 45000, emoji: '💪' },
+            { id: 381, nombre: 'Stronger With You Intensily', marca: 'Giorgio Armani', categoria: 'hombre', precio: 45000, emoji: '💥' },
+            { id: 382, nombre: 'Ted Lapidus', marca: 'Ted Lapidus', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 383, nombre: 'Terre', marca: 'Hermes', categoria: 'hombre', precio: 45000, emoji: '🌍' },
+            { id: 384, nombre: 'The Most Wanted', marca: 'Azzaro', categoria: 'hombre', precio: 45000, emoji: '🎯' },
+            { id: 385, nombre: 'The One D&G', marca: 'Dolce & Gabbana', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 386, nombre: 'The One Grey', marca: 'Dolce & Gabbana', categoria: 'hombre', precio: 45000, emoji: '🩶' },
+            { id: 387, nombre: 'Tobacco Vainilla', marca: 'Tom Ford', categoria: 'hombre', precio: 45000, emoji: '🚬' },
+            { id: 388, nombre: 'Tommy Hilfiger', marca: 'Tommy Hilfiger', categoria: 'hombre', precio: 45000, emoji: '👕' },
+            { id: 389, nombre: 'Toy Boy', marca: 'Moschino', categoria: 'hombre', precio: 45000, emoji: '🧸' },
+            { id: 390, nombre: 'Tsar', marca: 'Van Cleef', categoria: 'hombre', precio: 45000, emoji: '👑' },
+            { id: 391, nombre: 'Ultra Male', marca: 'JP Gaultier', categoria: 'hombre', precio: 45000, emoji: '💪' },
+            { id: 392, nombre: 'Ultraviolet', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '🟣' },
+            { id: 393, nombre: 'Valentino Born in Roma', marca: 'Valentino', categoria: 'hombre', precio: 45000, emoji: '❤️' },
+            { id: 394, nombre: 'Valentino Born In Roma Gold', marca: 'Valentino', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 395, nombre: 'Valentino Uomo', marca: 'Valentino', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 396, nombre: 'Very irresistible', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '😍' },
+            { id: 397, nombre: 'Wanted', marca: 'Azzaro', categoria: 'hombre', precio: 45000, emoji: '🎯' },
+            { id: 398, nombre: 'Wanted By Night', marca: 'Azzaro', categoria: 'hombre', precio: 45000, emoji: '🌙' },
+            { id: 399, nombre: 'Xeryus Rouge', marca: 'Givenchy', categoria: 'hombre', precio: 45000, emoji: '❤️' },
+            { id: 400, nombre: 'XS', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '✨' },
+            { id: 401, nombre: 'XS Aphrodisiaque', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '💘' },
+            { id: 402, nombre: 'XS Black', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '🖤' },
+            { id: 403, nombre: 'XS Black Potion', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '🧪' },
+            { id: 404, nombre: 'XS L\'Excess', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '🤪' },
+            { id: 405, nombre: 'XS Pure', marca: 'Paco Rabanne', categoria: 'hombre', precio: 45000, emoji: '💎' },
+            { id: 406, nombre: 'Y Eau de Parfum', marca: 'Yves Saint Lauren', categoria: 'hombre', precio: 45000, emoji: '👨' },
+            { id: 407, nombre: 'Y live', marca: 'Yves Saint Laurent', categoria: 'hombre', precio: 45000, emoji: '⚡' },
+
+            // ÁRABES FEMENINAS
+            { id: 408, nombre: 'Eclaire', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '✨' },
+            { id: 409, nombre: 'Eden Sparkling', marca: 'Kayali', categoria: 'arabes', precio: 50000, emoji: '🌸' },
+            { id: 410, nombre: 'Emaan', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '😇' },
+            { id: 411, nombre: 'Fakhar Rosé', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🌹' },
+            { id: 412, nombre: 'Mayar', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '✨' },
+            { id: 413, nombre: 'Mayar Cherry Intense', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🍒' },
+            { id: 414, nombre: 'Niche Femme', marca: 'Bharara', categoria: 'arabes', precio: 50000, emoji: '👑' },
+            { id: 415, nombre: 'Noble Blush', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '💋' },
+            { id: 416, nombre: 'Opulent Musk', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🌸' },
+            { id: 417, nombre: 'Qimmah', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '👑' },
+            { id: 418, nombre: 'Sakeena', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '😊' },
+            { id: 419, nombre: 'Teriaq', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🧴' },
+            { id: 420, nombre: 'Yara', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '✨' },
+            { id: 421, nombre: 'Yara Candy', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🍬' },
+            { id: 422, nombre: 'Yara Elilxir', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '✨' },
+            { id: 423, nombre: 'Yara Moi', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '😊' },
+            { id: 424, nombre: 'Yara Tous', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '👑' },
+
+            // ÁRABES MASCULINAS
+            { id: 425, nombre: '9PM', marca: 'Afnam', categoria: 'arabes', precio: 50000, emoji: '🌙' },
+            { id: 426, nombre: 'Adeeb', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '👨' },
+            { id: 427, nombre: 'Alquiam Gold', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '✨' },
+            { id: 428, nombre: 'Amber Oud Dubai Night', marca: 'Haramain', categoria: 'arabes', precio: 50000, emoji: '🌙' },
+            { id: 429, nombre: 'Ansaam Silver', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '💎' },
+            { id: 430, nombre: 'Asad', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🦁' },
+            { id: 431, nombre: 'Asad Bourbon', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🥃' },
+            { id: 432, nombre: 'Asad Elixir', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '✨' },
+            { id: 433, nombre: 'Bade AL Oud for Glory', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '👑' },
+            { id: 434, nombre: 'Bharara King', marca: 'Bharara', categoria: 'arabes', precio: 50000, emoji: '👑' },
+            { id: 435, nombre: 'Blue Saphire', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '💎' },
+            { id: 436, nombre: 'Club de Nuit', marca: 'Armaf', categoria: 'arabes', precio: 50000, emoji: '🎩' },
+            { id: 437, nombre: 'Club de Nuit Iconic', marca: 'Armaf', categoria: 'arabes', precio: 50000, emoji: '👑' },
+            { id: 438, nombre: 'Club De Nuit Lionheart', marca: 'Armaf', categoria: 'arabes', precio: 50000, emoji: '🦁' },
+            { id: 439, nombre: 'Fakar Black', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🖤' },
+            { id: 440, nombre: 'Hawas', marca: 'Rasasi', categoria: 'arabes', precio: 50000, emoji: '💪' },
+            { id: 441, nombre: 'Hawas Ice', marca: 'Rassasi', categoria: 'arabes', precio: 50000, emoji: '❄️' },
+            { id: 442, nombre: 'Hawas Tropical', marca: 'Rassasi', categoria: 'arabes', precio: 50000, emoji: '🌴' },
+            { id: 443, nombre: 'Jean Lowe Immortal', marca: 'Maison Alhambra', categoria: 'arabes', precio: 50000, emoji: '♾️' },
+            { id: 444, nombre: 'Khamrah', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🌙' },
+            { id: 445, nombre: 'Khamrah Dukhan', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '💨' },
+            { id: 446, nombre: 'Khamrah Qawa', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '☕' },
+            { id: 447, nombre: 'Maahir Black', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🖤' },
+            { id: 448, nombre: 'Mandarine Sky', marca: 'Armaf', categoria: 'arabes', precio: 50000, emoji: '🌆' },
+            { id: 449, nombre: 'Oud For Greatness', marca: 'Initio', categoria: 'arabes', precio: 50000, emoji: '👑' },
+            { id: 450, nombre: 'Qaed Al Fursan', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '🏇' },
+            { id: 451, nombre: 'Salvo', marca: 'Maison Alhambra', categoria: 'arabes', precio: 50000, emoji: '🗡️' },
+            { id: 452, nombre: 'Suqraat', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '✨' },
+            { id: 453, nombre: 'Tag', marca: 'Armaf', categoria: 'arabes', precio: 50000, emoji: '🏷️' },
+            { id: 454, nombre: 'The Kingdom', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '👑' },
+
+            // ÁRABES UNISEX
+            { id: 455, nombre: 'Al Jawara', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '💎' },
+            { id: 456, nombre: 'Amber oud Gold', marca: 'Al Haramain', categoria: 'arabes', precio: 50000, emoji: '✨' },
+            { id: 457, nombre: 'Amber Rouge', marca: 'Orientica', categoria: 'arabes', precio: 50000, emoji: '❤️' },
+            { id: 458, nombre: 'Bade AL Oud for Amethyst', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '💜' },
+            { id: 459, nombre: 'Bade Al Oud Honor y Glory', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '👑' },
+            { id: 460, nombre: 'Bade Al Oud Sublime', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '✨' },
+            { id: 461, nombre: 'Club de Nuit Untold', marca: 'Armaf', categoria: 'arabes', precio: 50000, emoji: '📖' },
+            { id: 462, nombre: 'Nebras', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '⭐' },
+            { id: 463, nombre: 'Odyssey Spectra', marca: 'Odyssey', categoria: 'arabes', precio: 50000, emoji: '🌌' },
+            { id: 464, nombre: 'Oud Saffron', marca: 'Orientica', categoria: 'arabes', precio: 50000, emoji: '🟨' },
+            { id: 465, nombre: 'Thara', marca: 'Lattafa', categoria: 'arabes', precio: 50000, emoji: '👑' },
+            { id: 466, nombre: 'Yum Pistachio Gelato', marca: 'Kayali', categoria: 'arabes', precio: 50000, emoji: '🍦' },
+
+            // UNISEX
+            { id: 467, nombre: 'Accento', marca: 'Xerjoff', categoria: 'unisex', precio: 48000, emoji: '🎵' },
+            { id: 468, nombre: 'All', marca: 'Calvin Klein', categoria: 'unisex', precio: 48000, emoji: '✨' },
+            { id: 469, nombre: 'Amber Gold', marca: 'Xerjoff', categoria: 'unisex', precio: 48000, emoji: '✨' },
+            { id: 470, nombre: 'Arabians Tonka', marca: 'Montale', categoria: 'unisex', precio: 48000, emoji: '🌰' },
+            { id: 471, nombre: 'Baccarat Rouge', marca: 'Maison Francis Kurkdjian', categoria: 'unisex', precio: 48000, emoji: '❤️' },
+            { id: 472, nombre: 'Be', marca: 'Calvin Klein', categoria: 'unisex', precio: 48000, emoji: '👍' },
+            { id: 473, nombre: 'Bianco Latte', marca: 'Giardini Di Toscana', categoria: 'unisex', precio: 48000, emoji: '🥛' },
+            { id: 474, nombre: 'Boise Fruite', marca: 'Montale', categoria: 'unisex', precio: 48000, emoji: '🌲' },
+            { id: 475, nombre: 'Erba Pura', marca: 'Xerjoff', categoria: 'unisex', precio: 48000, emoji: '🌿' },
+            { id: 476, nombre: 'Everyone', marca: 'Calvin Klein', categoria: 'unisex', precio: 48000, emoji: '👥' },
+            { id: 477, nombre: 'Fleur Du Desert', marca: 'Louis Vuitton', categoria: 'unisex', precio: 48000, emoji: '🌸' },
+            { id: 478, nombre: 'Gaiac 10 Tokyo', marca: 'Le Labo', categoria: 'unisex', precio: 48000, emoji: '🏯' },
+            { id: 479, nombre: 'Halfeti', marca: 'Penhaligons', categoria: 'unisex', precio: 48000, emoji: '🌹' },
+            { id: 480, nombre: 'Intense Café', marca: 'Montale', categoria: 'unisex', precio: 48000, emoji: '☕' },
+            { id: 481, nombre: 'Lost Cherry', marca: 'Tom Ford', categoria: 'unisex', precio: 48000, emoji: '🍒' },
+            { id: 482, nombre: 'Mandarino Di Amalfi', marca: 'Tom Ford', categoria: 'unisex', precio: 48000, emoji: '🍊' },
+            { id: 483, nombre: 'Neroli Portofino', marca: 'Tom Ford', categoria: 'unisex', precio: 48000, emoji: '🌸' },
+            { id: 484, nombre: 'One', marca: 'Calvin Klein', categoria: 'unisex', precio: 48000, emoji: '1️⃣' },
+            { id: 485, nombre: 'Santal 33', marca: 'Le Labo', categoria: 'unisex', precio: 48000, emoji: '🌲' },
+            { id: 486, nombre: 'Tubérause Astrale', marca: 'Maison Crivelli', categoria: 'unisex', precio: 48000, emoji: '🌺' },
+            { id: 487, nombre: 'Vanille 44', marca: 'Le Labo', categoria: 'unisex', precio: 48000, emoji: '🍦' },
+            { id: 488, nombre: 'Divine Elixir', marca: 'JP Gaultier', categoria: 'unisex', precio: 48000, emoji: '✨' },
+            { id: 489, nombre: 'Valentino Donna Born in Roma', marca: 'Valentino', categoria: 'unisex', precio: 48000, emoji: '❤️' },
+            { id: 490, nombre: 'Club de Nuit Oud Odyssey', marca: 'Armaf', categoria: 'unisex', precio: 48000, emoji: '🌙' },
+            { id: 491, nombre: 'Odyssey Homme White', marca: 'Armaf', categoria: 'unisex', precio: 48000, emoji: '⚪' },
+            { id: 492, nombre: 'Mashmelow Blush', marca: 'Paris Corner', categoria: 'unisex', precio: 48000, emoji: '🍡' }
+        ];
+
+        // Pagination / Render Products
+        const DISPLAY_LIMIT = 20;
+        let itemsToShow = DISPLAY_LIMIT;
+
+        // Product images mapping
+        const productImages = {
+            '212 New York': '212edt.jpg',
+            '212 Héroes': '212heroesedp.jpg',
+            '212 Heroes': '212heroesedp.jpg',
+            '212 Sexy': '212sexy.jpg'
+        };
+
+        function getProductImageHTML(productName) {
+            const imageSrc = productImages[productName];
+            if (imageSrc) {
+                return `<img src="${imageSrc}" alt="${productName}" style="width:100%; height:100%; object-fit:cover;">`;
+            }
+            return '';
+        }
+
+        // Render Products
+        function renderProducts(productsToShow) {
+            const grid = document.getElementById('productsGrid');
+            const noProducts = document.getElementById('noProducts');
+
+            if (productsToShow.length === 0) {
+                grid.innerHTML = '';
+                noProducts.classList.remove('hidden');
+                return;
+            }
+
+            noProducts.classList.add('hidden');
+            grid.innerHTML = productsToShow.map(p => `
+                <div class="product-card">
+                    <div class="product-image">${getProductImageHTML(p.nombre)}</div>
+                    <div class="product-info">
+                        <div class="product-name">${p.nombre}</div>
+                        <div class="product-brand">${p.marca}</div>
+                        <div class="product-size" style="margin-bottom:8px;">
+                            <label for="size-${p.id}" style="font-size:13px;color:#666;margin-right:8px;">Tamaño:</label>
+                            <select id="size-${p.id}" onchange="updatePrice(${p.id}, this.value)">
+                                <option value="60">60 ml</option>
+                                <option value="30">30 ml</option>
+                            </select>
+                        </div>
+                        <div class="product-price" id="price-${p.id}">${formatPrice(PRICE_60)}</div>
+                        <button class="product-button" onclick="contactar('${p.nombre}', document.getElementById('size-${p.id}').value)">Consultar</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderMoreButton(show) {
+            const moreContainer = document.getElementById('moreContainer');
+            if (!moreContainer) return;
+            if (show) {
+                moreContainer.innerHTML = `<button class="load-more-btn" style="max-width:240px;">Cargar más</button>`;
+                moreContainer.querySelector('button').addEventListener('click', () => { itemsToShow += DISPLAY_LIMIT; applyFilters(); });
+            } else {
+                moreContainer.innerHTML = '';
+            }
+        }
+
+        // Update displayed price when size changes
+        function updatePrice(id, size) {
+            const priceEl = document.getElementById('price-' + id);
+            const price = size === '30' ? PRICE_30 : PRICE_60;
+            if (priceEl) priceEl.textContent = formatPrice(price);
+        }
+
+        // Filter by Category
+        let currentCategory = 'all';
+        function filterByCategory(category) {
+            currentCategory = category;
+            itemsToShow = DISPLAY_LIMIT;
+            const buttons = document.querySelectorAll('.category-nav button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            applyFilters();
+        }
+
+        // Apply all filters
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            let filtered = productos;
+
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(p => p.categoria === currentCategory);
+            }
+
+            if (searchTerm) {
+                filtered = filtered.filter(p => 
+                    p.nombre.toLowerCase().includes(searchTerm) || 
+                    p.marca.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            // Show progressively itemsToShow for any current filter (all categories included)
+            const toShow = filtered.slice(0, itemsToShow);
+            renderProducts(toShow);
+            renderMoreButton(filtered.length > itemsToShow);
+        }
+
+        // Search input listener
+        document.getElementById('searchInput').addEventListener('input', () => { itemsToShow = DISPLAY_LIMIT; applyFilters(); });
+
+        // Initial render
+        applyFilters();
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Contact function (includes selected size)
+        function contactar(productName, size = '60') {
+            const chosenSize = size || '60';
+            const price = chosenSize === '30' ? PRICE_30 : PRICE_60;
+            const message = `Hola! Me interesa el perfume: ${productName} - ${chosenSize}ml. `;
+            const whatsappUrl = `https://wa.me/5493412756778?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
